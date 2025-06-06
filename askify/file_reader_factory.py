@@ -47,3 +47,13 @@ class FileReaderFactory:
             file=file_path, 
             data = data
         )
+
+    @staticmethod
+    def create_frame(data):
+        data = pd.DataFrame(data)
+
+        return FileReader(
+            ext=None,
+            file=None,
+            data=data
+        )
