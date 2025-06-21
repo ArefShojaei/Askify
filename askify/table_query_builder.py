@@ -1,4 +1,4 @@
-class TableBuilder:
+class TableQueryBuilder:
     def __init__(self, data_frame):
         self.df = data_frame.get_content()
         
