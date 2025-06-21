@@ -1,19 +1,15 @@
 import pandas as pd
 from askify.file_reader import FileReader
+from askify.file_ext import FileExt
 
 
 class FileReaderFactory:
-    CSV_EXT = ".csv"
-    HTML_EXT = ".html"
-    JSON_EXT = ".json"
-    EXCEL_EXT = ".excel"
-
     @staticmethod
     def read_csv(file_path): 
         data = pd.read_csv(file_path)
 
         return FileReader(
-            ext=FileReaderFactory.CSV_EXT, 
+            ext=FileExt.CSV, 
             file=file_path, 
             data = data
         )
@@ -23,7 +19,7 @@ class FileReaderFactory:
         data = pd.read_json(file_path)
         
         return FileReader(
-            ext=FileReaderFactory.JSON_EXT, 
+            ext=FileExt.JSON, 
             file=file_path, 
             data = data
         )
@@ -33,7 +29,7 @@ class FileReaderFactory:
         data = pd.read_excel(file_path)
         
         return FileReader(
-            ext=FileReaderFactory.EXCEL_EXT, 
+            ext=FileExt.EXCEL, 
             file=file_path, 
             data = data
         )
@@ -43,7 +39,7 @@ class FileReaderFactory:
         data = pd.read_html(file_path)
 
         return FileReader(
-            ext=FileReaderFactory.HTML_EXT, 
+            ext=FileExt.HTML, 
             file=file_path, 
             data = data
         )
